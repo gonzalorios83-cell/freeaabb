@@ -124,10 +124,17 @@ function openSmartUrl(url){
   const finalUrl = normalizeUrl(url);
   if(!finalUrl || finalUrl === '#') return false;
   try{
-    const w = window.open(finalUrl, '_blank');
-    if(w){ try{ w.opener = null; }catch(_e){} }
+    const a = document.createElement('a');
+    a.href = finalUrl;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    a.style.display = 'none';
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
   }catch(e){
-    try{ location.assign(finalUrl); }catch(_e){}
+    // En web normal no navegamos la página principal: evita apertura duplicada.
+    console.warn('No se pudo abrir en nueva pestaña', e);
   }
   return false;
 }
@@ -426,9 +433,9 @@ function swapItems(fromId,toId){
 
 
 editBtn.onclick = () => { editMode = !editMode; renderAll(); };
-resetBtn.onclick = () => {
+if(window.resetBtn){ resetBtn.onclick = () => {
   if(confirm('¿Restaurar accesos personalizados, orden de secciones y recargar la maqueta?')){ localStorage.removeItem('ps_custom_tiles'); localStorage.removeItem(LS_GROUPS_STATE); location.reload(); }
-};
+}; }
 howBtn.onclick = () => infoDialog.showModal();
 closeInfoBtn.onclick = () => infoDialog.close();
 supportBtn.onclick = () => openSmartUrl('https://wa.me/5491148706501?text=Hola%2C%20necesito%20soporte%20con%20Punto%20Smart%20OS');

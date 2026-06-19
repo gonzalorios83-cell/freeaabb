@@ -10,8 +10,8 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="apple-touch-icon" href="favicon.png" />
 
-  <link rel="stylesheet" href="styles.css?v=98" />
-  <link rel="stylesheet" href="smartos-extra.css?v=98" />
+  <link rel="stylesheet" href="styles.css?v=99" />
+  <link rel="stylesheet" href="smartos-extra.css?v=99" />
 </head>
 <body>
   <div class="app-shell">
@@ -44,12 +44,12 @@
     </header>
 
     <main>
-      <section class="smart-search" aria-label="Smart Search">
+      <section class="os-slogan" aria-label="Descripción de Punto Smart OS">Interfaz Híbrida Operativa. Entorno Adaptable a tu gusto.</section>
+
+      <section class="smart-search" aria-label="Smart OS Browser">
         <div class="smart-search-head">
-          <span class="smart-search-badge">Smart Search</span>
-          <small>Interfaz Híbrida Operativa. Entorno Adaptable a tu gusto.</small>
+          <span class="smart-search-badge">Smart OS Browser</span>
         </div>
-        <div id="dailyPhrase" class="daily-phrase" aria-label="Frase diaria"></div>
         <form id="smartSearchForm" class="smart-search-box">
           <span class="smart-search-icon">⌕</span>
           <input id="searchInput" type="search" autocomplete="off" placeholder="¿Qué querés buscar?" />
@@ -70,6 +70,11 @@
           <button type="button" class="engine-pill" data-engine="trabajo">Trabajo</button>
           <button type="button" class="engine-pill" data-engine="redes">Redes</button>
         </div>
+      </section>
+
+      <section class="phrase-day-card" aria-label="Frase del día">
+        <span class="phrase-day-label">Frase del día</span>
+        <div id="dailyPhrase" class="daily-phrase"></div>
       </section>
 
       <a class="ad-banner main-ad" href="https://wa.me/5491148706501?text=Hola%2C%20quiero%20consultar%20por%20un%20espacio%20publicitario%20en%20Punto%20Smart%20OS" target="_blank" rel="noopener">
@@ -221,6 +226,6 @@
     </div>
   </dialog>
 
-  <script src="script.js?v=98"></script>
+  <script src="script.js?v=99"></script>
 </body>
 </html>
