@@ -27,13 +27,19 @@ const groups = {
   ],
   fotos: [
     app('Google Fotos','https://photos.google.com/','photos.google.com'),
-    app('Cámara','#camera','', true, '📷'),
+    app('Cámara / Fotos','https://photos.google.com/','photos.google.com', true, '📷'),
     app('Canva','https://www.canva.com/','canva.com'),
     app('Photopea','https://www.photopea.com/','photopea.com'),
     app('Remove.bg','https://www.remove.bg/','remove.bg'),
     app('CapCut','https://www.capcut.com/','capcut.com'),
     app('Adobe Express','https://www.adobe.com/express/','adobe.com'),
     app('Pinterest','https://www.pinterest.com/','pinterest.com')
+  ],
+  juegos: [
+    app('Steam','https://store.steampowered.com/','steampowered.com'),
+    app('Minijuegos','https://www.minijuegos.com/','minijuegos.com'),
+    app('Poki','https://poki.com/es','poki.com'),
+    app('CrazyGames','https://www.crazygames.com/','crazygames.com')
   ],
   ai: [
     app('Gemini','https://gemini.google.com/','gemini.google.com'),
@@ -78,7 +84,7 @@ const groups = {
 };
 
 const folderNames = {
-  fotos:'Fotos y Cámara', tramites:'Trámites', noticias:'Noticias y Deportes', bancos:'Bancos', negocio:'Negocio / Proveedores'
+  fotos:'Fotos y Cámara', juegos:'Juegos y Ocio', tramites:'Trámites', noticias:'Noticias y Deportes', bancos:'Bancos', negocio:'Negocio / Proveedores'
 };
 let editMode = false;
 let currentCustomIndex = null;
@@ -217,6 +223,7 @@ function renderAll(){
   renderGroup('favorites','favoritesGrid');
   renderGroup('content','contentGrid');
   renderGroup('fotos','fotosGrid');
+  renderGroup('juegos','juegosGrid');
   renderGroup('ai','aiGrid');
   renderGroup('tramites','tramitesGrid');
   renderGroup('noticias','noticiasGrid');
@@ -354,7 +361,7 @@ function openCustom(index){
 function openGroupAdd(groupKey){
   currentCustomIndex = null;
   currentAddGroup = groupKey;
-  const label = folderNames[groupKey] || ({favorites:'Favoritos y Esenciales', content:'Compras y Contenido', fotos:'Fotos y Cámara', ai:'IA y Productividad'}[groupKey] || 'sección');
+  const label = folderNames[groupKey] || ({favorites:'Favoritos y Esenciales', content:'Compras y Contenido', fotos:'Fotos y Cámara', juegos:'Juegos y Ocio', ai:'IA y Productividad'}[groupKey] || 'sección');
   customDialogTitle.textContent = 'Agregar acceso en ' + label;
   customName.value = '';
   customUrl.value = '';

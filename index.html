@@ -10,8 +10,8 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="apple-touch-icon" href="favicon.png" />
 
-  <link rel="stylesheet" href="styles.css?v=100" />
-  <link rel="stylesheet" href="smartos-extra.css?v=100" />
+  <link rel="stylesheet" href="styles.css?v=101" />
+  <link rel="stylesheet" href="smartos-extra.css?v=101" />
 </head>
 <body>
   <div class="app-shell">
@@ -76,13 +76,6 @@
         <span class="phrase-day-label">Frase del día</span>
         <div id="dailyPhrase" class="daily-phrase"></div>
       </section>
-
-      <a class="ad-banner main-ad" href="https://wa.me/5491148706501?text=Hola%2C%20quiero%20consultar%20por%20un%20espacio%20publicitario%20en%20Punto%20Smart%20OS" target="_blank" rel="noopener">
-        <span class="ad-icon">↗</span>
-        <span class="ad-copy"><b>Impulsá tu negocio</b><small>Publicidad efectiva, resultados reales.</small></span>
-        <span class="ad-cta">ANUNCIÁ ACÁ</span>
-      </a>
-
       <section class="panel wide" data-section="Favoritos y Esenciales">
         <div class="panel-title"><span>★</span><h2>Favoritos y Esenciales</h2><button type="button" class="section-add-btn" data-add-group="favorites">+ Agregar</button></div>
         <div class="icon-grid" id="favoritesGrid"></div>
@@ -96,6 +89,11 @@
       <section class="panel wide" data-section="Fotos y Cámara">
         <div class="panel-title"><span>📷</span><h2>Fotos y Cámara</h2><button type="button" class="section-add-btn" data-add-group="fotos">+ Agregar</button></div>
         <div class="icon-grid" id="fotosGrid"></div>
+      </section>
+
+      <section class="panel wide" data-section="Juegos y Ocio">
+        <div class="panel-title"><span>🎮</span><h2>Juegos y Ocio</h2><button type="button" class="section-add-btn" data-add-group="juegos">+ Agregar</button></div>
+        <div class="icon-grid" id="juegosGrid"></div>
       </section>
 
       <section class="panel wide" data-section="IA y Productividad">
@@ -192,7 +190,7 @@
 
   <dialog id="customDialog" class="modal">
     <form method="dialog" id="customForm">
-      <h3>Agregar página o aplicación</h3>
+      <h3 id="customDialogTitle">Agregar página o aplicación</h3>
       <label>Nombre
         <input id="customName" maxlength="24" placeholder="Ej: Proveedor celulares" required />
       </label>
@@ -232,6 +230,6 @@
   </dialog>
 
   <input id="cameraInput" type="file" accept="image/*" capture="environment" hidden />
-  <script src="script.js?v=100"></script>
+  <script src="script.js?v=101"></script>
 </body>
 </html>
