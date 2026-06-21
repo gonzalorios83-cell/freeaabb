@@ -10,8 +10,8 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="apple-touch-icon" href="favicon.png" />
 
-  <link rel="stylesheet" href="styles.css?v=99" />
-  <link rel="stylesheet" href="smartos-extra.css?v=99" />
+  <link rel="stylesheet" href="styles.css?v=100" />
+  <link rel="stylesheet" href="smartos-extra.css?v=100" />
 </head>
 <body>
   <div class="app-shell">
@@ -84,42 +84,47 @@
       </a>
 
       <section class="panel wide" data-section="Favoritos y Esenciales">
-        <div class="panel-title"><span>★</span><h2>Favoritos y Esenciales</h2></div>
+        <div class="panel-title"><span>★</span><h2>Favoritos y Esenciales</h2><button type="button" class="section-add-btn" data-add-group="favorites">+ Agregar</button></div>
         <div class="icon-grid" id="favoritesGrid"></div>
       </section>
 
       <section class="panel wide" data-section="Compras y Contenido">
-        <div class="panel-title"><span>🛒</span><h2>Compras y Contenido</h2></div>
+        <div class="panel-title"><span>🛒</span><h2>Compras y Contenido</h2><button type="button" class="section-add-btn" data-add-group="content">+ Agregar</button></div>
         <div class="icon-grid" id="contentGrid"></div>
       </section>
 
+      <section class="panel wide" data-section="Fotos y Cámara">
+        <div class="panel-title"><span>📷</span><h2>Fotos y Cámara</h2><button type="button" class="section-add-btn" data-add-group="fotos">+ Agregar</button></div>
+        <div class="icon-grid" id="fotosGrid"></div>
+      </section>
+
       <section class="panel wide" data-section="IA y Productividad">
-        <div class="panel-title"><span>✦</span><h2>IA y Productividad</h2></div>
+        <div class="panel-title"><span>✦</span><h2>IA y Productividad</h2><button type="button" class="section-add-btn" data-add-group="ai">+ Agregar</button></div>
         <div class="icon-grid" id="aiGrid"></div>
       </section>
 
       <section class="folder-board">
         <article class="panel folder-panel" data-folder="tramites">
           <button class="folder-open" data-folder="tramites" aria-label="Abrir carpeta Trámites">›</button>
-          <div class="panel-title"><span>▣</span><h2>Trámites</h2></div>
+          <div class="panel-title"><span>▣</span><h2>Trámites</h2><button type="button" class="section-add-btn" data-add-group="tramites">+ Agregar</button></div>
           <div class="mini-grid" id="tramitesGrid"></div>
         </article>
 
         <article class="panel folder-panel" data-folder="noticias">
           <button class="folder-open" data-folder="noticias" aria-label="Abrir carpeta Noticias y Deportes">›</button>
-          <div class="panel-title"><span>▣</span><h2>Noticias y Deportes</h2></div>
+          <div class="panel-title"><span>▣</span><h2>Noticias y Deportes</h2><button type="button" class="section-add-btn" data-add-group="noticias">+ Agregar</button></div>
           <div class="mini-grid" id="noticiasGrid"></div>
         </article>
 
         <article class="panel folder-panel" data-folder="bancos">
           <button class="folder-open" data-folder="bancos" aria-label="Abrir carpeta Bancos">›</button>
-          <div class="panel-title"><span>▣</span><h2>Bancos</h2></div>
+          <div class="panel-title"><span>▣</span><h2>Bancos</h2><button type="button" class="section-add-btn" data-add-group="bancos">+ Agregar</button></div>
           <div class="mini-grid" id="bancosGrid"></div>
         </article>
 
         <article class="panel folder-panel" data-folder="negocio">
           <button class="folder-open" data-folder="negocio" aria-label="Abrir carpeta Negocio y Proveedores">›</button>
-          <div class="panel-title"><span>▣</span><h2>Negocio / Proveedores</h2></div>
+          <div class="panel-title"><span>▣</span><h2>Negocio / Proveedores</h2><button type="button" class="section-add-btn" data-add-group="negocio">+ Agregar</button></div>
           <div class="mini-grid" id="negocioGrid"></div>
         </article>
       </section>
@@ -226,6 +231,7 @@
     </div>
   </dialog>
 
-  <script src="script.js?v=99"></script>
+  <input id="cameraInput" type="file" accept="image/*" capture="environment" hidden />
+  <script src="script.js?v=100"></script>
 </body>
 </html>

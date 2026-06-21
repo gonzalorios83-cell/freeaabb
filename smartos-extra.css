@@ -887,3 +887,27 @@
     font-size:18px !important;
   }
 }
+
+/* v100: agregar accesos por baldosa/sección más visible */
+.section-add-btn{
+  display:none;
+  margin-left:auto;
+  align-items:center;
+  justify-content:center;
+  height:32px;
+  padding:0 12px;
+  border-radius:999px;
+  border:1px solid rgba(64,210,255,.45);
+  background:rgba(30,118,190,.22);
+  color:#dff7ff;
+  font-weight:800;
+  font-size:13px;
+  cursor:pointer;
+}
+.editing-mode .section-add-btn{display:inline-flex;}
+.section-add-btn:hover{background:rgba(40,154,235,.34);}
+.add-section-tile .add-icon{font-size:42px;font-weight:900;color:#e7fbff;background:linear-gradient(180deg,#197adf,#0d456f)!important;}
+.add-section-tile .tile-icon{border-color:rgba(54,210,255,.55)!important;}
+@media(max-width:620px){
+  .section-add-btn{height:28px;padding:0 9px;font-size:12px;}
+}

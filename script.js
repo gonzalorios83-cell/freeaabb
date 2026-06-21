@@ -25,6 +25,16 @@ const groups = {
     app('Flow','https://www.flow.com.ar/','flow.com.ar', true),
     app('Bloc de notas','#notes','', true, '▤')
   ],
+  fotos: [
+    app('Google Fotos','https://photos.google.com/','photos.google.com'),
+    app('Cámara','#camera','', true, '📷'),
+    app('Canva','https://www.canva.com/','canva.com'),
+    app('Photopea','https://www.photopea.com/','photopea.com'),
+    app('Remove.bg','https://www.remove.bg/','remove.bg'),
+    app('CapCut','https://www.capcut.com/','capcut.com'),
+    app('Adobe Express','https://www.adobe.com/express/','adobe.com'),
+    app('Pinterest','https://www.pinterest.com/','pinterest.com')
+  ],
   ai: [
     app('Gemini','https://gemini.google.com/','gemini.google.com'),
     app('ChatGPT','https://chatgpt.com/','chatgpt.com'),
@@ -68,7 +78,7 @@ const groups = {
 };
 
 const folderNames = {
-  tramites:'Trámites', noticias:'Noticias y Deportes', bancos:'Bancos', negocio:'Negocio / Proveedores'
+  fotos:'Fotos y Cámara', tramites:'Trámites', noticias:'Noticias y Deportes', bancos:'Bancos', negocio:'Negocio / Proveedores'
 };
 let editMode = false;
 let currentCustomIndex = null;
@@ -206,6 +216,7 @@ function renderGroup(key, elId, mini=false){
 function renderAll(){
   renderGroup('favorites','favoritesGrid');
   renderGroup('content','contentGrid');
+  renderGroup('fotos','fotosGrid');
   renderGroup('ai','aiGrid');
   renderGroup('tramites','tramitesGrid');
   renderGroup('noticias','noticiasGrid');
@@ -261,6 +272,15 @@ function bindTiles(){
       return false;
     };
   });
+  document.querySelectorAll('.section-add-btn').forEach(btn => {
+    btn.onclick = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if(!editMode) return false;
+      openGroupAdd(btn.dataset.addGroup);
+      return false;
+    };
+  });
   document.querySelectorAll('.add-section-tile').forEach(btn => {
     btn.onclick = (e) => {
       e.preventDefault();
@@ -280,6 +300,7 @@ function bindTiles(){
       }
       const url = btn.dataset.url;
       if(url === '#notes') return openNotes();
+      if(url === '#camera') return openCamera();
       openSmartUrl(url);
       return false;
     };
@@ -303,6 +324,20 @@ function bindTiles(){
 function openNotes(){
   alert('Bloc de notas: en la próxima versión se puede agregar un bloc editable guardado en el navegador.');
 }
+function openCamera(){
+  const input = document.getElementById('cameraInput');
+  if(input){
+    input.value = '';
+    input.onchange = () => {
+      const file = input.files && input.files[0];
+      if(file) alert('Foto seleccionada: ' + file.name + '\nNo se guarda en Punto Smart OS. Queda en tu dispositivo.');
+    };
+    input.click();
+  }else{
+    openSmartUrl('https://photos.google.com/');
+  }
+  return false;
+}
 
 function openCustom(index){
   currentCustomIndex = index;
@@ -319,7 +354,7 @@ function openCustom(index){
 function openGroupAdd(groupKey){
   currentCustomIndex = null;
   currentAddGroup = groupKey;
-  const label = folderNames[groupKey] || ({favorites:'Favoritos y Esenciales', content:'Compras y Contenido', ai:'IA y Productividad'}[groupKey] || 'sección');
+  const label = folderNames[groupKey] || ({favorites:'Favoritos y Esenciales', content:'Compras y Contenido', fotos:'Fotos y Cámara', ai:'IA y Productividad'}[groupKey] || 'sección');
   customDialogTitle.textContent = 'Agregar acceso en ' + label;
   customName.value = '';
   customUrl.value = '';
